@@ -8,10 +8,13 @@ public class PlayerMovement : MonoBehaviour
 
     private Rigidbody2D rb;
     private Vector2 movement;
+    private Vector2 lastDirection = Vector2.down;
+    private Animator animator;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
     }
 
     private void Update()
@@ -34,6 +37,13 @@ public class PlayerMovement : MonoBehaviour
         }
 
         movement = input.normalized;
+        if (movement != Vector2.zero)
+        {
+            lastDirection = movement;
+        }
+        animator.SetFloat("Speed", movement.magnitude);
+        animator.SetFloat("DirectionX", lastDirection.x);
+        animator.SetFloat("DirectionY", lastDirection.y);
     }
 
     private void FixedUpdate()
