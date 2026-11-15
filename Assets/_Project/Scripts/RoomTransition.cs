@@ -1,47 +1,29 @@
 
 using UnityEngine;
-using UnityEngine.InputSystem;
 
-public class RoomTransition : MonoBehaviour
+public class RoomTransition : MonoBehaviour, IInteractable
 {
     [SerializeField] private Transform destination;
 
-    private GameObject player;
-
-    private void OnTriggerEnter2D(Collider2D other)
+    public void Interact()
     {
-        if (other.CompareTag("Player"))
-        {
-            player = other.gameObject;
-        }
-    }
-
-    private void OnTriggerExit2D(Collider2D other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            player = null;
-        }
-    }
-
-    private void Update()
-    {
-        if (player == null || destination == null)
+        if (destination == null)
             return;
 
-        if (Keyboard.current != null &&
-            Keyboard.current.eKey.wasPressedThisFrame)
-        {
-            Rigidbody2D rb = player.GetComponent<Rigidbody2D>();
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
 
-            if (rb != null)
-            {
-                rb.linearVelocity = Vector2.zero;
-                rb.position = new Vector2(
-                    destination.position.x,
-                    destination.position.y
-                );
-            }
-        }
+        if (player == null)
+            return;
+
+        Rigidbody2D rb = player.GetComponent<Rigidbody2D>();
+
+        if (rb == null)
+            return;
+
+        rb.linearVelocity = Vector2.zero;
+        rb.position = new Vector2(
+            destination.position.x,
+            destination.position.y
+        );
     }
 }
