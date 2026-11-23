@@ -3657,7 +3657,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1740532270
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3756,7 +3756,6 @@ MonoBehaviour:
   inventoryPanel: {fileID: 914698622}
   inventoryText: {fileID: 1082306462}
   inventory: {fileID: 2113458156}
-  isOpen: 0
 --- !u!4 &1916495302 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1897351503755061637, guid: 29c3caaaf0b1ab34c87efe8627f80569, type: 3}

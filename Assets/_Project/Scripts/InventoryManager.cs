@@ -5,6 +5,8 @@ using UnityEngine;
 public class InventoryManager : MonoBehaviour
 {
     private readonly List<string> collectedItems = new();
+    public IReadOnlyList<string> CollectedItems => collectedItems;
+
 
     public bool AddItem(string itemName)
     {
