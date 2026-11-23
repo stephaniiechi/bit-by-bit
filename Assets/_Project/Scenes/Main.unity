@@ -451,6 +451,73 @@ Transform:
   - {fileID: 1941721525}
   m_Father: {fileID: 947737728}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &389854884
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 389854885}
+  - component: {fileID: 389854886}
+  - component: {fileID: 389854887}
+  m_Layer: 0
+  m_Name: WorldGenerator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &389854885
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 389854884}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &389854886
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 389854884}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 618656c55bb234e408870738c04a1b65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TerrainGenerator
+  grassTile: {fileID: 11400000, guid: 5f0e0782261113447a2aa3d9f2b32d24, type: 2}
+  dirtTile: {fileID: 11400000, guid: 75086194df27e8142a263afc6862bf20, type: 2}
+  seed: 42
+  noiseScale: 0.08
+  dirtThreshold: 0.4
+--- !u!114 &389854887
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 389854884}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6effa9a258fb8c540bcb22c5926957ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WorldGenerator
+  player: {fileID: 1323938200}
+  groundChunkPrefab: {fileID: 7717730113852974431, guid: 89dcc3e72a774ce43b3143e40dddfd46, type: 3}
+  terrainGenerator: {fileID: 389854886}
+  chunkSize: 16
+  renderDistance: 2
 --- !u!1 &398308420
 GameObject:
   m_ObjectHideFlags: 0
@@ -2647,7 +2714,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!156049354 &783741757
 Grid:
   m_ObjectHideFlags: 0
@@ -3308,6 +3375,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Room_02
       objectReference: {fileID: 0}
+    - target: {fileID: 125669651434279171, guid: 29c3caaaf0b1ab34c87efe8627f80569, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1897351503755061637, guid: 29c3caaaf0b1ab34c87efe8627f80569, type: 3}
       propertyPath: m_LocalPosition.x
       value: 20
@@ -3782,6 +3853,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Room_01
       objectReference: {fileID: 0}
+    - target: {fileID: 125669651434279171, guid: 29c3caaaf0b1ab34c87efe8627f80569, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1897351503755061637, guid: 29c3caaaf0b1ab34c87efe8627f80569, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -3846,3 +3921,4 @@ SceneRoots:
   - {fileID: 783741758}
   - {fileID: 2113458157}
   - {fileID: 1740532273}
+  - {fileID: 389854885}
